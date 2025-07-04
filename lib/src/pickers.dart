@@ -231,8 +231,8 @@ class YearPickerState extends State<YearPicker> {
   @override
   void initState() {
     super.initState();
-    _currentPage =
-        ((widget.initialDate.year - widget.firstDate.year) / 12).floor();
+    _currentPage = ((widget.initialDate.year - widget.firstDate.year) / 12)
+        .floor();
     _pageController = PageController(initialPage: _currentPage);
   }
 
@@ -467,13 +467,14 @@ class _Button extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final buttonBackground =
-        isSelected ? colorScheme.primary.withOpacity(.5) : null;
+    final buttonBackground = isSelected
+        ? colorScheme.primary.withValues(alpha: .5)
+        : null;
     final buttonText = isSelected
         ? colorScheme.onSecondary
         : isHighlighted
-            ? colorScheme.secondary
-            : colorScheme.onSurface;
+        ? colorScheme.secondary
+        : colorScheme.onSurface;
 
     return TextButton(
       onPressed: isEnabled ? onPressed : null,
